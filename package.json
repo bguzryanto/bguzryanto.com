@@ -1,0 +1,19 @@
+{
+  "dependencies": {
+    "grid-styled": "^2.0.0-10",
+    "next": "^3.2.2",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "styled-components": "^2.1.2",
+    "styled-components-breakpoint": "^1.0.1",
+    "styled-normalize": "^2.2.1"
+  },
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.2.0"
+  }
+}
