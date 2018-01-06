@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "grid-styled": "^2.0.0-10",
-    "next": "^3.2.2",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "next": "^4.2.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "styled-components": "^2.1.2",
     "styled-components-breakpoint": "^1.0.1",
     "styled-normalize": "^2.2.1"
