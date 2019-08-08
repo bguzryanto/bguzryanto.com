@@ -1,11 +1,11 @@
-import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
+import React from "react";
+import Document, { Head, Main, NextScript } from "next/document";
+import { ServerStyleSheet, createGlobalStyle } from "styled-components";
 
-import styledNormalize from 'styled-normalize';
+import styledNormalize from "styled-normalize";
 
 const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
-
   html{
     font-size: 62.5%; /* Now 10px = 1rem! */
     font-family: "adobe-garamond-pro", serif;
@@ -29,11 +29,29 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default class MyDocument extends Document {
-  render() {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet();
-    const main = sheet.collectStyles(<Main />);
-    const styleTags = sheet.getStyleElement();
 
+    const originalRenderPage = ctx.renderPage;
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: App => props =>
+          sheet.collectStyles(
+            <React.Fragment>
+              <GlobalStyle />
+              <App {...props} />
+            </React.Fragment>
+          )
+      });
+
+    const initialProps = await Document.getInitialProps(ctx);
+    return {
+      ...initialProps,
+      styles: [...initialProps.styles, ...sheet.getStyleElement()]
+    };
+  }
+
+  render() {
     return (
       <html>
         <Head>
@@ -44,7 +62,7 @@ export default class MyDocument extends Document {
             content="width=device-width, initial-scale=1.0"
           />
           <GlobalStyle />
-          {styleTags}
+          {this.props.style}
           <script
             dangerouslySetInnerHTML={{
               __html: `(function(d) {
@@ -54,7 +72,7 @@ export default class MyDocument extends Document {
                 async: true
               },
               h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/wf-loading/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
-            })(document);`,
+            })(document);`
             }}
           />
           <script
@@ -71,7 +89,7 @@ export default class MyDocument extends Document {
             gtag('js', new Date());
 
             gtag('config', 'UA-112006155-1');
-            `,
+            `
             }}
           />
         </Head>

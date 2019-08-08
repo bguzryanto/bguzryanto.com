@@ -6,7 +6,7 @@
     "react-dom": "^16.8.6",
     "styled-components": "^4.0.0",
     "styled-components-breakpoint": "^1.0.1",
-    "styled-normalize": "^2.2.1"
+    "styled-normalize": "^8.0.6"
   },
   "scripts": {
     "dev": "next",
