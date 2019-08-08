@@ -5,10 +5,12 @@ import { ServerStyleSheet, createGlobalStyle } from "styled-components";
 import styledNormalize from "styled-normalize";
 
 const GlobalStyle = createGlobalStyle`
+
   ${styledNormalize}
+
   html{
     font-size: 62.5%; /* Now 10px = 1rem! */
-    font-family: "adobe-garamond-pro", serif;
+    font-family: 'Libre Baskerville', serif;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
@@ -61,6 +63,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto+Mono&display=swap" rel="stylesheet" />
           <GlobalStyle />
           {this.props.style}
           <script
@@ -87,7 +90,6 @@ export default class MyDocument extends Document {
               dataLayer.push(arguments);
             }
             gtag('js', new Date());
-
             gtag('config', 'UA-112006155-1');
             `
             }}
