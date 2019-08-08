@@ -4,6 +4,7 @@ import breakpoint from "styled-components-breakpoint";
 
 import MenuIcon from "./Navbar/MenuIcon";
 import DesktopMenu from "./Navbar/DesktopMenu";
+import { type } from "os";
 
 const HeaderText = styled.h1`
   background: -webkit-linear-gradient(right, #293d5b, #83a9c2);
@@ -34,8 +35,6 @@ const HeaderWrapper = styled.div`
 
 class Header extends Component {
   render() {
-    const { open = false, onMenuClick = () => {} } = this.props;
-
     return (
       <HeaderWrapper>
         <HeaderText>Hello</HeaderText>

@@ -23,7 +23,11 @@ const StyledTitle = styled.h1`
   color: #444;
 `;
 
-class MobileMenu extends Component {
+type propsType = {
+  open: boolean;
+};
+
+class MobileMenu extends Component<propsType, {}> {
   render() {
     const { open = false } = this.props;
     return (

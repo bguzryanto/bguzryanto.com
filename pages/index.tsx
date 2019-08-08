@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import Head from "next/head";
-import Layout from "./../components/Layout";
-import Header from "./../components/Header";
 
-class DefaultLayout extends Component {
+import Layout from "./../components/Layout";
+import Header from "../components/Header";
+
+type stateType = {
+  open: boolean;
+};
+
+class DefaultLayout extends Component<{}, stateType> {
   constructor(props) {
     super(props);
 

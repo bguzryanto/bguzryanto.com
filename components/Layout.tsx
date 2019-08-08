@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import styled, { injectGlobal } from "styled-components";
+import styled from "styled-components";
 
 import DesktopMenu from "./Navbar/DesktopMenu";
 import MenuIcon from "./Navbar/MenuIcon";
@@ -14,7 +14,10 @@ const Wrapper = styled.div`
     props.open ? "translate3d(-10rem, 0, 0)" : "translate3d(0, 0, 0)"};
 `;
 
-class Layout extends Component {
+type stateType = {
+  open: boolean;
+};
+class Layout extends Component<{}, stateType> {
   constructor(props) {
     super(props);
 

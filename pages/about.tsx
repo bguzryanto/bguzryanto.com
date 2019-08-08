@@ -2,7 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import { Flex, Box } from "grid-styled";
 
-import Layout from "./../components/Layout";
+import Layout from "../components/Layout";
 
 const StyledAboutMe = styled.div`
   font-size: 2rem;
@@ -40,7 +40,7 @@ export default () => (
       <Flex>
         <Box width={1} px={2}>
           <StyledAvatar
-            src="https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/18739806_10210013112870693_3560002072103584101_n.jpg?oh=32f2d2a351e3460bacf3ca220ff09975&oe=5A13E87B"
+            src="/static/images/~bagus.jpg"
             alt="Bagus Rianto"
           />
           <p>

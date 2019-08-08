@@ -1,9 +1,9 @@
 import Document, { Head, Main, NextScript } from 'next/document';
-import { ServerStyleSheet, injectGlobal } from 'styled-components';
+import { ServerStyleSheet, createGlobalStyle } from 'styled-components';
 
 import styledNormalize from 'styled-normalize';
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
 
   html{
@@ -37,13 +37,13 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>Bagus Rianto personal web</title>
           <meta charset="utf-8" />
           <meta http-equiv="X-UA-Compatible" content="IE=edge" />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
+          <GlobalStyle />
           {styleTags}
           <script
             dangerouslySetInnerHTML={{

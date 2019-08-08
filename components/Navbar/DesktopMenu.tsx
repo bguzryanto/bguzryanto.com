@@ -4,7 +4,7 @@ import { withRouter } from "next/router";
 import styled from "styled-components";
 import breakpoint from "styled-components-breakpoint";
 
-import colors from "./../colors";
+import colors from "../colors";
 
 const Nav = styled.nav`
   display: none;
@@ -18,9 +18,13 @@ const Nav = styled.nav`
   `};
 `;
 
-const NavItems = styled.ul`list-style: none;`;
+const NavItems = styled.ul`
+  list-style: none;
+`;
 
-const NavItem = styled.li`float: left;`;
+const NavItem = styled.li`
+  float: left;
+`;
 
 const NavItemLink = styled.a`
   color: ${props => (props.isActive ? colors.tertiary : "#444")};
@@ -38,9 +42,16 @@ const NavItemLink = styled.a`
   }
 `;
 
-class DesktopMenu extends Component {
+type propsType = {
+  router: {
+    pathname: string;
+  };
+};
+class DesktopMenu extends Component<propsType, {}> {
   render() {
-    const { router: { pathname } } = this.props;
+    const {
+      router: { pathname }
+    } = this.props;
 
     return (
       <Nav>
@@ -69,4 +80,6 @@ class DesktopMenu extends Component {
   }
 }
 
-export default withRouter(DesktopMenu);
+export default withRouter(({ router }) => (
+  <DesktopMenu router={{ pathname: router.pathname }} />
+));

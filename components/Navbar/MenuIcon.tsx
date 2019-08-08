@@ -30,30 +30,34 @@ const Bricks = styled.span`
   `};
 `;
 
-const Brick1 = Bricks.extend`
+const Brick1 = styled(Bricks)`
   width: ${props => (props.isOpen ? "0%" : "")};
 
   top: ${props => (props.isOpen ? "10px" : "0px")};
   left: ${props => (props.isOpen ? "50%" : "")};
 `;
 
-const Brick2 = Bricks.extend`
+const Brick2 = styled(Bricks)`
   top: 10px;
   transform: ${props => (props.isOpen ? "rotate(45deg)" : "")};
 `;
 
-const Brick3 = Bricks.extend`
+const Brick3 = styled(Bricks)`
   top: 10px;
   transform: ${props => (props.isOpen ? "rotate(-45deg)" : "")};
 `;
 
-const Brick4 = Bricks.extend`
+const Brick4 = styled(Bricks)`
   top: ${props => (props.isOpen ? "10px" : "20px")};
   width: ${props => (props.isOpen ? "0%" : "")};
   left: ${props => (props.isOpen ? "50%" : "")};
 `;
 
-class MenuIcon extends Component {
+type propsType = {
+  open: boolean,
+  onMenuClick: Function,
+}
+class MenuIcon extends Component<propsType, {}> {
   render() {
     const { open = false, onMenuClick = () => {} } = this.props;
     return (
