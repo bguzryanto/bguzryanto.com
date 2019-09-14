@@ -1,54 +1,10 @@
 import React from "react";
 import Head from "next/head";
+import Layout from "./../components/Layout";
 import styled from "styled-components";
 import breakpoint from "styled-components-breakpoint";
 
 import { Flex, Box } from "grid-styled";
-
-const StyledAboutMe = styled.div`
-  max-width: 70rem;
-  text-align: justify;
-  font-family: "Roboto Mono", monospace;
-
-  ${breakpoint("mobile")`
-    margin: 2.5rem 2rem 0 2rem;
-  `};
-
-  ${breakpoint("desktop")`
-    margin: 7.5rem 0 0 7.5rem;
-  `};
-
-  p {
-    font-size: 1.35rem;
-    line-height: 2.2rem;
-    color: #47302a;
-    text-align: justify;
-
-    ${breakpoint("desktop")`
-      font-size: 1.6rem;
-      line-height: 2.9rem;
-    `}
-  }
-
-  ul {
-    li {
-      font-weight: normal;
-    }
-  }
-
-  a {
-    text-decoration: none;
-    background: linear-gradient(to right, rgba(252, 235, 1, 0.9), rgba(252, 235, 1, 0.6));
-    background-repeat: no-repeat;
-    background-size: 100% 37%;
-    background-position: 0% 100%;
-    color: #47302a;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-`;
 
 const StyledAvatar = styled.img`
   width: ${props => (props.width ? props.width : "200px")};
@@ -62,13 +18,13 @@ const StyledAvatar = styled.img`
 `;
 
 export default () => (
-  <React.Fragment>
+  <Layout>
     <Head>
-      <title>~bagus: Bagus Rianto</title>
+      <title>Bagus Rianto</title>
     </Head>
-    <StyledAboutMe>
-      <Flex>
-        <Box width={1} px={2}>
+    <Flex>
+      <Box width={1} px={2}>
+        <main>
           <StyledAvatar src="/static/images/~bagus.jpg" alt="Bagus Rianto" />
           <p>
             <strong>Hi</strong>, My name is Bagus Rianto
@@ -102,8 +58,8 @@ export default () => (
             </a>
             .
           </p>
-        </Box>
-      </Flex>
-    </StyledAboutMe>
-  </React.Fragment>
+        </main>
+      </Box>
+    </Flex>
+  </Layout>
 );

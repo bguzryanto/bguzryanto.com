@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    background-color: rgba(252,235,1,0.05);
+    background-color: rgba(255, 255, 255, 1);
   }
 
   h1, h2,h3,h4, h5, h6 {
