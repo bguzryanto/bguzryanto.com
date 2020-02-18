@@ -17,8 +17,14 @@ const GlobalStyle = createGlobalStyle`
     background-color: rgba(255, 255, 255, 1);
   }
 
-  h1, h2,h3,h4, h5, h6 {
-    font-family: "europa",sans-serif;
+  @media (prefers-color-scheme: dark) {
+    html {
+      color: #fff;
+      background-color: #222;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
   }
 
   p {
@@ -64,7 +70,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto+Mono&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville|Roboto+Mono&display=fallback" rel="stylesheet" />
           <GlobalStyle />
           {this.props.style}
           <script
