@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "grid-styled": "^2.0.0-10",
-    "next": "^9.0.3",
+    "next": "^11.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "styled-components": "^4.0.0",
